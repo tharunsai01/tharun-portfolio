@@ -24,3 +24,11 @@
     font-family: var(--font-heading);
   }
 }
+
+@layer utilities {
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

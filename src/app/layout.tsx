@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,7 +35,10 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased scroll-smooth`}
     >
       <body className="bg-background text-foreground font-sans min-h-screen flex flex-col selection:bg-cyan-500/30">
-        {children}
+        <SmoothScrolling>
+          <CustomCursor />
+          {children}
+        </SmoothScrolling>
       </body>
     </html>
   );
