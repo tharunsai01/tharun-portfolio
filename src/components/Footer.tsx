@@ -1,44 +1,56 @@
 import Link from "next/link";
-import { Mail } from "lucide-react";
-import { Github, Linkedin } from "./Icons";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-panel border-t border-white/5 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-        
-        <div className="flex flex-col items-center md:items-start">
-          <Link href="#home" className="text-xl font-bold font-heading tracking-tight text-foreground mb-2">
-            Tharun<span className="text-accent-purple">.</span>
-          </Link>
-          <p className="text-text-secondary text-sm">
-            Building secure systems and breaking insecure ones.
+    <footer className="relative bg-background pt-32 pb-8 overflow-hidden border-t border-white/5">
+
+      {/* Background Theme Glows */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-accent-cyan/10 blur-[150px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[300px] bg-accent-purple/10 blur-[150px] rounded-full pointer-events-none z-0" />
+
+      <div className="w-full px-4 sm:px-6 lg:px-12 relative z-10 flex flex-col items-center">
+
+        {/* Top Header / Links */}
+        <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
+          <div className="text-sm font-semibold tracking-widest uppercase text-white/90">
+            Code with precision.
+            Secure with purpose.
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-8 text-xs font-bold tracking-widest uppercase text-white/50">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent-cyan transition-colors flex items-center gap-1 group">
+              GITHUB
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-accent-cyan" />
+            </a>
+            <a href="https://linkedin.com/in/kandunuri-tharun-sai" target="_blank" rel="noopener noreferrer" className="hover:text-accent-purple transition-colors flex items-center gap-1 group">
+              LINKEDIN
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-accent-purple" />
+            </a>
+            <a href="mailto:kandunuritharunsai@gmail.com" className="hover:text-accent-cyan transition-colors flex items-center gap-1 group">
+              EMAIL
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-accent-cyan" />
+            </a>
+          </div>
+        </div>
+
+        {/* Giant Name Typography */}
+        <div className="w-full flex justify-center items-center relative group mt-10">
+          <h1 className="text-[14.5vw] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/40 via-white/10 to-transparent select-none text-center w-full uppercase pb-4 whitespace-nowrap">
+            THARUN SAI
+          </h1>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="w-full max-w-7xl mx-auto mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] text-white/30 uppercase tracking-widest font-mono">
+          <p>
+            &copy; {new Date().getFullYear()} THARUN SAI. ALL RIGHTS RESERVED.
+          </p>
+          <p className="flex items-center gap-1">
+            PORTFOLIO BUILT WITH <span className="text-white/50 font-bold">NEXT.JS</span>
           </p>
         </div>
 
-        <div className="flex space-x-6">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-accent-cyan transition-colors">
-            <span className="sr-only">GitHub</span>
-            <Github className="h-5 w-5" />
-          </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-accent-purple transition-colors">
-            <span className="sr-only">LinkedIn</span>
-            <Linkedin className="h-5 w-5" />
-          </a>
-          <a href="mailto:contact@example.com" className="text-text-secondary hover:text-foreground transition-colors">
-            <span className="sr-only">Email</span>
-            <Mail className="h-5 w-5" />
-          </a>
-        </div>
-
-      </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-text-secondary text-xs">
-          &copy; {new Date().getFullYear()} Tharun. All rights reserved.
-        </p>
-        <p className="text-text-secondary text-xs">
-          Built with Next.js & Tailwind CSS
-        </p>
       </div>
     </footer>
   );
