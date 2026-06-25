@@ -139,7 +139,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      <div className="pointer-events-none fixed inset-0 z-[9999] overflow-visible mix-blend-difference">
+      <div className="pointer-events-none fixed inset-0 z-[9999] overflow-visible">
         {/* Trails */}
         {!isHovering && trails.map((trail, index) => (
           <motion.div
@@ -178,7 +178,7 @@ export default function CustomCursor() {
 
         {/* Main Cursor Center */}
         <motion.div
-          className="fixed top-0 left-0 flex items-center justify-center bg-white will-change-transform shadow-[0_0_20px_4px_rgba(255,255,255,0.4)] mix-blend-difference"
+          className="fixed top-0 left-0 flex items-center justify-center will-change-transform shadow-[0_0_20px_4px_rgba(255,255,255,0.4)]"
           style={{
             x: smoothX,
             y: smoothY,
@@ -191,6 +191,7 @@ export default function CustomCursor() {
             borderRadius: isHovering && buttonRect ? buttonRect.radius : 9999,
             opacity: isVisible ? 1 : 0,
             scale: isClicked ? 0.9 : 1,
+            backgroundColor: isHovering ? "rgba(255,255,255,0)" : "rgba(255,255,255,1)",
           }}
           transition={{
             type: "spring",

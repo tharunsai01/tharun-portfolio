@@ -18,11 +18,11 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
+  visible: {
+    opacity: 1,
+    y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
   }
 };
 
@@ -47,13 +47,13 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
   },
   {
-    title: "Zero-Trust Network Architecture",
-    description: "Implemented a zero-trust security model for an enterprise network, enforcing strict identity verification for every user and device. Utilized advanced threat hunting techniques to secure sensitive endpoints.",
-    tags: ["Security", "Networking", "Zero-Trust", "Firewall", "IAM"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    status: "In Progress",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop"
+    title: "FORENSIC-AI: Intelligent Deepfake Video Detection for Digital Evidence",
+    description: "Built an AI-driven deepfake detection system for digital forensics using Vision Transformers, frequency analysis, and temporal attention. The model achieved 97.31% AUC on unseen datasets, ensuring robust generalization and reliable real-world performance.",
+    tags: ["Digital Forensics", "AI/ML", "Deep Learning", "Vision Transformers", "Computer Vision"],
+    githubUrl: "",
+    liveUrl: "",
+    status: "Completed",
+    image: "/forensic.png"
   },
   {
     title: "Penetration Testing Automation Suite",
@@ -68,7 +68,7 @@ const projects: Project[] = [
 
 function ProjectCard({ project }: { project: Project }) {
   const ref = useRef<HTMLDivElement>(null);
-  
+
   // Mouse tracking for 3D tilt & Spotlight
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -82,7 +82,7 @@ function ProjectCard({ project }: { project: Project }) {
     // Normalize coordinates from -1 to 1 based on center of card
     const x = (e.clientX - left - width / 2) / (width / 2);
     const y = (e.clientY - top - height / 2) / (height / 2);
-    
+
     mouseX.set(x);
     mouseY.set(y);
   };
@@ -109,91 +109,86 @@ function ProjectCard({ project }: { project: Project }) {
       onMouseLeave={handleMouseLeave}
       whileHover={{ y: -10 }}
       style={{ rotateX, rotateY, transformPerspective: 1000 }}
-      className="relative flex flex-col group rounded-2xl overflow-hidden bg-panel/30 backdrop-blur-xl border border-white/10 shadow-xl transition-all duration-500 h-full"
+      className="relative flex flex-col group rounded-2xl overflow-hidden bg-panel border border-white/10 shadow-xl h-[420px] sm:h-[460px] cursor-pointer"
     >
       {/* Premium Glassmorphism Hover Border */}
-      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none shadow-[inset_0_0_0_1px_rgba(56,189,248,0.5)] z-20" />
-      
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none shadow-[inset_0_0_0_1px_rgba(56,189,248,0.5)] z-30" />
+
       {/* Outer Glow on Hover */}
       <div className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[0_0_30px_rgba(56,189,248,0.15)] z-0" />
 
       {/* Mouse Tracking Spotlight */}
-      <motion.div 
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 mix-blend-screen"
+      <motion.div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-30 mix-blend-screen"
         style={{ background: spotlightBackground }}
       />
 
-      {/* Image Preview Area */}
-      <div className="relative z-10 w-full h-56 sm:h-64 p-5 pb-0">
-        <div className="relative w-full h-full rounded-xl overflow-hidden shadow-xl border border-white/5">
-          {/* Animated Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-          
-          {/* Image Zoom Reveal */}
-          <div 
-            className="absolute inset-0 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-700 ease-out bg-cover bg-center"
-            style={{ backgroundImage: `url('${project.image}')` }}
-          >
-              <div className="absolute inset-0 bg-background/60 group-hover:bg-background/20 transition-colors duration-500 mix-blend-overlay"></div>
+      {/* Top Slide (Image + Title) */}
+      <div className="absolute inset-0 z-20 flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-[60%]">
+        <div className="w-full h-full relative bg-panel">
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${project.image}')` }}>
+            <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent" />
           </div>
-          
-          {/* Status Badge */}
-          <div className="absolute top-3 left-3 z-20">
-            <span className={`text-[10px] font-mono px-2 py-1 rounded-full border shadow-lg backdrop-blur-md transition-all duration-300 group-hover:scale-105 ${
-              project.status === 'Completed' 
-                ? 'border-emerald-500/50 text-emerald-300 bg-emerald-500/20'
-                : 'border-amber-500/50 text-amber-300 bg-amber-500/20'
-            }`}>
-              {project.status}
-            </span>
+          {/* Content inside Top Slide */}
+          <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col items-center justify-end h-full">
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-panel/95 via-panel/60 to-transparent pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col items-center">
+              {/* Status Badge */}
+              <div className="mb-4">
+                <span className={`text-[10px] font-mono px-3 py-1.5 rounded-full border shadow-xl backdrop-blur-md ${project.status === 'Completed'
+                  ? 'border-emerald-500/50 text-emerald-300 bg-emerald-500/20'
+                  : 'border-amber-500/50 text-amber-300 bg-amber-500/20'
+                  }`}>
+                  {project.status}
+                </span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold font-heading text-white text-center drop-shadow-md group-hover:text-accent-cyan transition-colors duration-300">
+                {project.title}
+              </h3>
+            </div>
           </div>
         </div>
       </div>
-      
-      {/* Content Area */}
-      <div className="relative z-10 p-5 flex flex-col flex-grow w-full bg-gradient-to-br from-transparent to-background/50">
-        <h3 className="text-xl sm:text-2xl font-bold font-heading text-foreground mb-2 group-hover:text-accent-cyan transition-colors duration-300">
-          {project.title}
-        </h3>
-        
-        <p className="text-xs sm:text-sm text-text-secondary mb-5 flex-grow leading-relaxed">
+
+      {/* Bottom Slide (Text) */}
+      <div className="absolute inset-x-0 bottom-0 h-[60%] z-10 p-6 flex flex-col bg-panel/95 backdrop-blur-xl border-t border-white/10 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full group-hover:translate-y-0">
+        <p className="text-xs sm:text-sm text-text-secondary mb-4 flex-grow leading-relaxed whitespace-pre-line overflow-y-auto custom-scrollbar">
           {project.description}
         </p>
-        
+
         {/* Technologies / Features */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-5 shrink-0">
           {project.tags.map((tag) => (
-            <span key={tag} className="text-[10px] sm:text-[11px] font-mono text-white/70 bg-black/40 border border-white/10 px-2.5 py-1 rounded-full group-hover:border-accent-cyan/30 group-hover:text-accent-cyan transition-colors duration-300 whitespace-nowrap shadow-sm">
+            <span key={tag} className="text-[10px] font-mono text-white/70 bg-black/40 border border-white/10 px-2.5 py-1 rounded-full group-hover:border-accent-cyan/30 group-hover:text-accent-cyan transition-colors duration-300">
               {tag}
             </span>
           ))}
         </div>
-        
+
         {/* Magnetic Buttons */}
-        <div className="flex gap-3 mt-auto relative z-20">
+        <div className="flex gap-3 shrink-0 relative z-40">
           {project.githubUrl && (
-            <motion.a 
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href={project.githubUrl} 
-              target="_blank" 
+              href={project.githubUrl}
+              target="_blank"
               rel="noopener noreferrer"
-              className="relative overflow-hidden flex items-center justify-center gap-1.5 rounded-lg bg-black/50 border border-white/10 px-4 py-2 text-xs font-semibold text-white shadow-lg transition-all group/btn hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] magnetic-card w-auto"
+              className="relative overflow-hidden flex items-center justify-center gap-1.5 rounded-lg bg-black/50 border border-white/10 px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-white/10 shadow-lg"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:animate-[shimmer_1.5s_infinite]" />
               <span>GitHub</span>
             </motion.a>
           )}
           {project.liveUrl && (
-            <motion.a 
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href={project.liveUrl} 
-              target="_blank" 
+              href={project.liveUrl}
+              target="_blank"
               rel="noopener noreferrer"
-              className="relative overflow-hidden flex items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-2 text-xs font-semibold text-white shadow-[0_0_15px_rgba(56,189,248,0.2)] transition-all group/btn hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] magnetic-card w-auto"
+              className="relative overflow-hidden flex items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-2 text-xs font-semibold text-white shadow-[0_0_15px_rgba(56,189,248,0.2)] transition-all hover:shadow-[0_0_30px_rgba(56,189,248,0.4)]"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:animate-[shimmer_1.5s_infinite]" />
               <ExternalLink className="w-3.5 h-3.5" />
               <span>Live Demo</span>
             </motion.a>
@@ -207,7 +202,7 @@ function ProjectCard({ project }: { project: Project }) {
 export default function Projects() {
   return (
     <Section id="projects" title="Projects">
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"

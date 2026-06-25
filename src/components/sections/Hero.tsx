@@ -58,6 +58,18 @@ export default function Hero() {
   const [showContact, setShowContact] = useState(false);
   const ref = useRef<HTMLElement>(null);
   
+  // Close contact dropdown on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (showContact) {
+        setShowContact(false);
+      }
+    };
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showContact]);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"]
@@ -91,7 +103,7 @@ export default function Hero() {
     <section 
       ref={ref} 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
+      className="relative min-h-screen flex items-center justify-center pt-16"
       onMouseMove={handleMouseMove}
     >
       {/* Dynamic Spotlight */}
@@ -190,9 +202,9 @@ export default function Hero() {
             <AnimatePresence>
               {showContact && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10, height: 0 }}
-                  animate={{ opacity: 1, y: 0, height: "auto" }}
-                  exit={{ opacity: 0, y: -10, height: 0 }}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
                   className="w-full mt-2 bg-panel border border-white/10 rounded-xl shadow-2xl overflow-hidden z-20 backdrop-blur-xl absolute top-full left-0"
                 >

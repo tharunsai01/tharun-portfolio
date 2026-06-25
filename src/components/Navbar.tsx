@@ -15,6 +15,21 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
+const ToriiGate = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className={className}>
+    {/* Top curved beam (Kasagi) */}
+    <path d="M 5 25 Q 50 33 95 25 L 95 14 Q 50 23 5 14 Z" />
+    {/* Second beam (Nuki) */}
+    <rect x="12" y="45" width="76" height="6" />
+    {/* Center strut (Gakuzuka) */}
+    <rect x="46" y="24" width="8" height="21" />
+    {/* Left Pillar */}
+    <path d="M 23 25 L 27 25 L 29 90 L 21 90 Z" />
+    {/* Right Pillar */}
+    <path d="M 73 25 L 77 25 L 79 90 L 71 90 Z" />
+  </svg>
+);
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -49,11 +64,17 @@ export default function Navbar() {
           scrolled ? "bg-black/60 backdrop-blur-md border border-white/10 shadow-xl" : "bg-transparent border border-transparent"
         }`}
       >
-        <div className="mx-auto px-4 sm:px-5">
+        <div className="mx-auto px-8 sm:px-12">
         <div className="flex justify-between items-center h-16 relative">
           <div className="flex-shrink-0 flex items-center z-10">
-            <Link href="#home" className="text-xl font-bold tracking-tight text-foreground flex items-center gap-2">
-              Kandunuri Tharun <span className="text-text-secondary">Sai</span>
+            <Link href="#home" className="text-xl font-bold tracking-[0.2em] uppercase text-foreground flex items-center gap-6 group">
+              <div className="relative flex items-center justify-center transition-transform duration-500 group-hover:scale-110 -ml-6">
+                <div className="absolute inset-0 bg-accent-cyan/30 blur-[10px] rounded-full animate-pulse" />
+                <ToriiGate className="w-12 h-12 text-white drop-shadow-[0_0_12px_rgba(56,189,248,0.9)] relative z-10" />
+              </div>
+              <span className="flex items-center gap-2">
+                Tharun <span className="text-text-secondary">Sai</span>
+              </span>
             </Link>
           </div>
           
