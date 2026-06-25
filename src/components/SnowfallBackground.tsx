@@ -12,7 +12,7 @@ export default function SnowfallBackground() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let particles: { x: number; y: number; r: number; d: number; color: string }[] = [];
+    const particles: { x: number; y: number; r: number; d: number; color: string }[] = [];
     const maxParticles = 60; // "a little bit snow fall"
     let W = window.innerWidth;
     let H = window.innerHeight;

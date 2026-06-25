@@ -21,7 +21,7 @@ export default function CustomCursor() {
 
   // Trails setup
   const trailCount = 6;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const trails = Array.from({ length: trailCount }).map((_, i) => ({
     x: useSpring(cursorX, { damping: 20 + i * 4, stiffness: 400 - i * 30, mass: 0.4 + i * 0.1 }),
     y: useSpring(cursorY, { damping: 20 + i * 4, stiffness: 400 - i * 30, mass: 0.4 + i * 0.1 }),
@@ -212,7 +212,7 @@ export default function CustomCursor() {
 
         {/* Click Explosion Particles */}
         <AnimatePresence>
-          {clickParticles.map((p: any) => (
+          {clickParticles.map((p: { id: number; x: number; y: number }) => (
             <motion.div
               key={p.id}
               className="fixed top-0 left-0 w-2 h-2 rounded-full bg-cyan-300 shadow-[0_0_10px_2px_rgba(103,232,249,0.8)] mix-blend-normal"

@@ -42,12 +42,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="w-full max-w-7xl mx-auto mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] text-white/30 uppercase tracking-widest font-mono">
+        <div className="w-full max-w-7xl mx-auto mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-center items-center gap-4 text-[10px] text-white/30 uppercase tracking-widest font-mono">
           <p>
             &copy; {new Date().getFullYear()} THARUN SAI. ALL RIGHTS RESERVED.
-          </p>
-          <p className="flex items-center gap-1">
-            PORTFOLIO BUILT WITH <span className="text-white/50 font-bold">NEXT.JS</span>
           </p>
         </div>
 

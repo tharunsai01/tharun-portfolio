@@ -79,7 +79,6 @@ void main() {
 
 const ShaderPlane = () => {
   const meshRef = useRef<THREE.Mesh>(null);
-  const [size, setSize] = useState({ width: 0, height: 0 });
 
   const uniforms = useMemo(
     () => ({
@@ -92,7 +91,6 @@ const ShaderPlane = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setSize({ width: window.innerWidth, height: window.innerHeight });
       uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
     };
     
@@ -162,7 +160,7 @@ export default function HeroBackground() {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
+    setTimeout(() => setPrefersReducedMotion(mediaQuery.matches), 0);
     
     const listener = () => setPrefersReducedMotion(mediaQuery.matches);
     mediaQuery.addEventListener("change", listener);

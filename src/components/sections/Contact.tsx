@@ -45,7 +45,7 @@ export default function Contact() {
         {/* Contact Info */}
         <div className="space-y-8">
           <p className="text-lg text-text-secondary leading-relaxed">
-            I'm currently open to new opportunities. Whether you have a question, a project proposal, or just want to say hi, feel free to drop a message.
+            I&apos;m currently open to new opportunities. Whether you have a question, a project proposal, or just want to say hi, feel free to drop a message.
           </p>
           
           <ul className="flex flex-wrap gap-6 m-0 p-0 list-none">

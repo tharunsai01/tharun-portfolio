@@ -55,15 +55,6 @@ const projects: Project[] = [
     status: "Completed",
     image: "/forensic.png"
   },
-  {
-    title: "Penetration Testing Automation Suite",
-    description: "Developed a custom suite of automated penetration testing scripts. Integrates with Nmap and Metasploit to automatically scan for vulnerabilities and generate comprehensive security audit reports.",
-    tags: ["Python", "Nmap", "Metasploit", "Automation", "Pentesting"],
-    githubUrl: "https://github.com",
-    liveUrl: "",
-    status: "Completed",
-    image: "https://images.unsplash.com/photo-1510511459019-5efa3183ceb8?q=80&w=2070&auto=format&fit=crop"
-  }
 ];
 
 function ProjectCard({ project }: { project: Project }) {
