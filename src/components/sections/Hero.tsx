@@ -258,7 +258,7 @@ export default function Hero() {
             Cybersecurity
           </motion.h1>
           <h3 className="text-2xl sm:text-3xl text-text-secondary font-semibold mb-6 h-10 flex justify-center lg:justify-start items-center">
-            <TypewriterText text="B.Tech CSE (Cyber Security)" delay={1.5} />
+            <TypewriterText text="B.Tech CSE" delay={1.5} />
           </h3>
 
           <motion.div

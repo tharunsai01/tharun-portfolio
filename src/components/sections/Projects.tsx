@@ -44,7 +44,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com",
     liveUrl: "",
     status: "Completed",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
+    image: "/agentic.png"
   },
   {
     title: "FORENSIC-AI: Intelligent Deepfake Video Detection for Digital Evidence",

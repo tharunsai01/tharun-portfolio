@@ -4,6 +4,7 @@ import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import SnowfallBackground from "@/components/SnowfallBackground";
+import PageWrapper from "@/components/PageWrapper";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -39,7 +40,9 @@ export default function RootLayout({
         <SmoothScrolling>
           <SnowfallBackground />
           <CustomCursor />
-          {children}
+          <PageWrapper>
+            {children}
+          </PageWrapper>
         </SmoothScrolling>
       </body>
     </html>
