@@ -62,7 +62,7 @@ const projects: Project[] = [
     githubUrl: "",
     liveUrl: "",
     status: "Completed",
-    image: ""
+    image: "/SHMS.png"
   },
   {
     title: "Web Vulnerability Scanner",
@@ -71,7 +71,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com/tharunsai01/web-vulnerability-scanner",
     liveUrl: "",
     status: "Completed",
-    image: ""
+    image: "/WVS.png"
   }
 ];
 
