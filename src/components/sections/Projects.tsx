@@ -55,6 +55,24 @@ const projects: Project[] = [
     status: "Completed",
     image: "/forensic.png"
   },
+  {
+    title: "Smart Healthcare Monitoring System",
+    description: "Developed an IoT-based healthcare monitoring system for real-time measurement of patient vital signs. Integrated ESP32 with MLX90614 and MAX30102 sensors to monitor temperature, heart rate, and SpO2. Connected ThingSpeak for cloud-based data transmission and storage, enabling remote monitoring through a web-based interface with authentication and real-time health data visualization.",
+    tags: ["ESP32", "Arduino", "MLX90614", "MAX30102", "ThingSpeak", "IoT"],
+    githubUrl: "",
+    liveUrl: "",
+    status: "Completed",
+    image: ""
+  },
+  {
+    title: "Web Vulnerability Scanner",
+    description: "Developed a modular Python-based web vulnerability scanner for authorized security testing and cybersecurity education. Implemented automated web crawling, HTTP security header analysis, SSL/TLS inspection, technology detection, HTML form analysis, and basic reflected XSS testing. Built a Flask-based web interface with scan history, risk assessment, and automated PDF security reporting.",
+    tags: ["Python", "Flask", "Web Security", "Web Crawling", "XSS", "SSL/TLS"],
+    githubUrl: "https://github.com/tharunsai01/web-vulnerability-scanner",
+    liveUrl: "",
+    status: "Completed",
+    image: ""
+  }
 ];
 
 function ProjectCard({ project }: { project: Project }) {
