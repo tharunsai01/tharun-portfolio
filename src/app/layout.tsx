@@ -3,7 +3,6 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScrolling from "@/components/SmoothScrolling";
-import SnowfallBackground from "@/components/SnowfallBackground";
 import PageWrapper from "@/components/PageWrapper";
 
 const inter = Inter({
@@ -38,7 +37,6 @@ export default function RootLayout({
     >
       <body className="bg-background text-foreground font-sans min-h-screen flex flex-col selection:bg-cyan-500/30">
         <SmoothScrolling>
-          <SnowfallBackground />
           <CustomCursor />
           <PageWrapper>
             {children}

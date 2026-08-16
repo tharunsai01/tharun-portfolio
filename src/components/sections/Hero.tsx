@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Github, Linkedin } from "../Icons";
 
-const HeroBackground = dynamic(() => import("../HeroBackground"), { ssr: false });
+
 
 // Helper for character-by-character reveal
 const sentence: Variants = {
@@ -112,7 +112,7 @@ export default function Hero() {
         style={{ background: spotlightBackground }}
       />
 
-      <HeroBackground />
+
 
       {/* Floating 3D Shapes */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -255,7 +255,7 @@ export default function Hero() {
           <motion.h1
             className="text-5xl sm:text-6xl lg:text-[5rem] font-black font-heading tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 drop-shadow-[0_0_15px_rgba(56,189,248,0.3)] uppercase inline-block"
           >
-            Cybersecurity
+            Cyber Security
           </motion.h1>
           <h3 className="text-2xl sm:text-3xl text-text-secondary font-semibold mb-6 h-10 flex justify-center lg:justify-start items-center">
             <TypewriterText text="B.Tech CSE" delay={1.5} />

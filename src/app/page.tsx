@@ -7,12 +7,14 @@ import Certificates from "@/components/sections/Certificates";
 import Leadership from "@/components/sections/Leadership";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/Footer";
+import ParticleNetworkBackground from "@/components/ParticleNetworkBackground";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex-1 w-full overflow-x-hidden">
+      <main className="flex-1 w-full overflow-x-hidden relative">
+        <ParticleNetworkBackground />
         <Hero />
         <About />
         <Skills />
