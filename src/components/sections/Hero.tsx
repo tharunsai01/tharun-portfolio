@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSp
 import { Download, Mail, ExternalLink } from "lucide-react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import TextPressure from "../TextPressure";
 import { Github, Linkedin } from "../Icons";
 
 
@@ -166,7 +167,7 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-full overflow-hidden border border-white/20 bg-panel shadow-[0_0_50px_rgba(56,189,248,0.2)] group-hover:shadow-[0_0_80px_rgba(139,92,246,0.3)] transition-shadow duration-500">
               <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/20 to-accent-purple/20 mix-blend-overlay z-10"></div>
               <Image
-                src="/profile.png"
+                src="/myprofile.jpeg"
                 alt="Kandunuri Tharun Sai"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -252,11 +253,19 @@ export default function Hero() {
           }}
           className="flex-1 text-center lg:text-left max-w-2xl"
         >
-          <motion.h1
-            className="text-5xl sm:text-6xl lg:text-[5rem] font-black font-heading tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 drop-shadow-[0_0_15px_rgba(56,189,248,0.3)] uppercase inline-block"
+          <motion.div
+            className="text-5xl sm:text-6xl lg:text-[5rem] font-black font-heading tracking-tight mb-4 uppercase inline-block cursor-default"
           >
-            Cyber Security
-          </motion.h1>
+            <TextPressure 
+              text="Cyber Security" 
+              className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 drop-shadow-[0_0_15px_rgba(56,189,248,0.3)]"
+              weight={true}
+              width={false}
+              italic={false}
+              alpha={false}
+              fontFamily="inherit"
+            />
+          </motion.div>
           <h3 className="text-2xl sm:text-3xl text-text-secondary font-semibold mb-6 h-10 flex justify-center lg:justify-start items-center">
             <TypewriterText text="B.Tech CSE" delay={1.5} />
           </h3>

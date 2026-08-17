@@ -118,7 +118,7 @@ function ProjectCard({ project }: { project: Project }) {
       onMouseLeave={handleMouseLeave}
       whileHover={{ y: -10 }}
       style={{ rotateX, rotateY, transformPerspective: 1000 }}
-      className="relative flex flex-col group rounded-2xl overflow-hidden bg-panel border border-white/10 shadow-xl h-[420px] sm:h-[460px] cursor-pointer"
+      className="relative flex flex-col group rounded-2xl overflow-hidden bg-panel border border-white/10 shadow-xl h-[320px] sm:h-[360px] cursor-pointer"
     >
       {/* Premium Glassmorphism Hover Border */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none shadow-[inset_0_0_0_1px_rgba(56,189,248,0.5)] z-30" />
@@ -133,7 +133,7 @@ function ProjectCard({ project }: { project: Project }) {
       />
 
       {/* Top Slide (Image + Title) */}
-      <div className="absolute inset-0 z-20 flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-[60%]">
+      <div className="absolute inset-0 z-20 flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-[70%]">
         <div className="w-full h-full relative bg-panel">
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${project.image}')` }}>
             <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent" />
@@ -161,7 +161,7 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {/* Bottom Slide (Text) */}
-      <div className="absolute inset-x-0 bottom-0 h-[60%] z-10 p-6 flex flex-col bg-panel/95 backdrop-blur-xl border-t border-white/10 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full group-hover:translate-y-0">
+      <div className="absolute inset-x-0 bottom-0 h-[70%] z-10 p-6 flex flex-col bg-panel/95 backdrop-blur-xl border-t border-white/10 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full group-hover:translate-y-0">
         <p className="text-xs sm:text-sm text-text-secondary mb-4 flex-grow leading-relaxed whitespace-pre-line overflow-y-auto custom-scrollbar">
           {project.description}
         </p>
